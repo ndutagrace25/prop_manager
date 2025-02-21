@@ -48,6 +48,7 @@ export default function Home() {
       description: `${data.email} ${data.password}`,
       action: <ToastAction altText="Goto schedule to undo">Undo</ToastAction>,
     });
+    window.location.href = "/dashboard";
   }
 
   return (
@@ -56,6 +57,7 @@ export default function Home() {
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
+            method="post"
             className="w-2/3 space-y-6 "
           >
             <div className="flex justify-center">
