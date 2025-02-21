@@ -70,3 +70,15 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+@media (max-width: 640px) {
+  .mobile-text {
+    font-size: 14px;
+  }
+  .mobile-text-sm {
+    font-size: 12px;
+  }
+  .mobile-heading {
+    font-size: 16px;
+  }
+}

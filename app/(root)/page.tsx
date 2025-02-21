@@ -31,7 +31,7 @@ const FormSchema = z.object({
   }),
 });
 
-export default function Home() {
+export default function LoginPage() {
   const { toast } = useToast();
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -52,17 +52,19 @@ export default function Home() {
   }
 
   return (
-    <div className="flex justify-center items-center h-full bg-gray-50">
-      <div className="shadow-md rounded-lg py-8 flex justify-center w-[30%] bg-white">
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4 py-12 sm:px-6 lg:px-8 mobile-text">
+      <div className="w-full max-w-md space-y-8 bg-white py-3 sm:p-8 rounded-lg shadow-md flex justify-center">
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
             method="post"
-            className="w-2/3 space-y-6 "
+            className="w-2/3 space-y-6 mobile-text-sm"
           >
-            <div className="flex justify-center">
-              <Building2 className="text-blue-500" />{" "}
-              <span className="pl-2 font-bold">PropManager</span>
+            <div className="flex justify-center items-center space-x-2">
+              <Building2 className="h-6 w-6 text-blue-500" />
+              <span className="text-xl font-bold mobile-heading">
+                PropManager
+              </span>
             </div>
             <FormField
               control={form.control}
@@ -71,7 +73,11 @@ export default function Home() {
                 <FormItem>
                   <FormLabel>Email</FormLabel>
                   <FormControl>
-                    <Input placeholder="Enter your email" {...field} />
+                    <Input
+                      placeholder="Enter your email"
+                      {...field}
+                      className="w-full"
+                    />
                   </FormControl>
                   <FormDescription></FormDescription>
                   <FormMessage />
@@ -89,6 +95,7 @@ export default function Home() {
                       placeholder="Enter your password"
                       {...field}
                       type="password"
+                      className="w-full"
                     />
                   </FormControl>
                   <FormDescription></FormDescription>
@@ -99,7 +106,7 @@ export default function Home() {
             <Button type="submit" className="w-full bg-blue-600">
               Login
             </Button>
-            <div className="text-end text-blue-400 text-sm cursor-pointer">
+            <div className="text-end text-blue-400 text-sm cursor-pointer mobile-text-sm">
               Forgot password?
             </div>
           </form>
